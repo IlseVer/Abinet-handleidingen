@@ -1,6 +1,6 @@
-#!/bin/bash
+udo#!/bin/bash
 # =========================================
-# Teamlid aanmaken op Oracle Linux
+# Teamlid met sudorechten aanmaken op Oracle Linux
 # Gebruik: sudo ./add_team_member.sh <username> <public_key_file> [sudo]
 # =========================================
 # voorbeeld:
