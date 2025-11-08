@@ -1,6 +1,7 @@
 # 🧩 Stappenplan: Nieuwe teamleden toevoegen op Oracle Linux (handmatig)
 
 Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan de server, hun SSH-sleutels instelt en toegang geeft tot de gedeelde map `/srv/teamabinet`.
+Of gebruik het script: [add_team_member.sh](scripts/add_team_member.sh)
 
 ---
 
