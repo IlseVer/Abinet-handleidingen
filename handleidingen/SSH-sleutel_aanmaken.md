@@ -63,7 +63,9 @@ IdentityFile ~/.ssh/id_ed25519
 ```
 - Stel de juiste rechten in
 ```
-chmod 600 ~/.ssh/config
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
+chmod 644 ~/.ssh/id_ed25519.pub
 ```  
   
 ### 🔹 **3. Sla het bestand op als `config` in je map:**
