@@ -1,8 +1,6 @@
 # SSH-sleutel aanmaken
 
 ## Windows (PowerShell)
-![SSH key aanmaken](images/ssh-key-aanmaken.gif)
-
 
 Maak een nieuwe sleutel aan:
 
@@ -30,8 +28,9 @@ Of met eigen bestandsnaam:
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
 ```
 
-💡 De publieke sleutel (`.pub`) kopieer je naar de server (meestal naar `~/.ssh/authorized_keys`).
+De publieke sleutel (`.pub`) kopieer je naar de server (meestal naar `~/.ssh/authorized_keys`).
 
+![SSH key aanmaken](images/ssh-key-aanmaken.gif)
 ---
 
 ## 📂 Sleutels verplaatsen (indien nodig)
