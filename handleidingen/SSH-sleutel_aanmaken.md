@@ -1,4 +1,7 @@
 # SSH-sleutel aanmaken
+> ⚠️ **Belangrijk:** Deel **nooit** je *private key*!    
+> Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
+
 
 ## Windows (PowerShell)
 
@@ -35,30 +38,67 @@ De publieke sleutel (`.pub`) kopieer je naar de server (meestal naar `~/.ssh/aut
 
 ## 📂 Sleutels verplaatsen (indien nodig)
 
-De sleutels staan normaal in de map **.ssh**.
+De net aangemaakte sleutels staan normaal gezien automatisch in de map **.ssh**.
 Indien niet, verplaats **beide** bestanden (private en public key) naar die map:
 
 * Windows: `C:\Users\<naam>\.ssh\`
 * Linux/macOS: `~/.ssh/`
 
 ---
-
+# Met SSH te verbinden via een config op Windows:
 ## ⚙️ SSH-configuratiebestand maken
 
-1. Open een teksteditor (bijv. Kladblok).
-2. Voeg dit toe en pas aan waar nodig:
+---
+
+### 🔹 **1. Open Verkenner**
+
+Ga naar:
 
 ```
+C:\Users\<jouw_naam>\.ssh
+```
+
+---
+### 🔹 **2. Maak (of open) bestand `config`** (bijv. met Kladblok)
+
+Plak dit erin (pas aan waar nodig):
+
+```ssh
 Host projectnaam
+    HostName 89.168.87.161      # IP-adres van je server
+    User ubuntu                 # gebruikersnaam
     Port 22
-    HostName 89.168.97.161          # IP-adres van je server
-    User ubuntu                     # gebruikersnaam
-    IdentityFile "C:\Users\ilse_\.ssh\abinet_oracle_vm_key"  # pad naar private key
-    PasswordAuthentication no
+    IdentityFile C:\Users\<jouw_naam>\.ssh\id_ed25519  # pad naar je private key
     IdentitiesOnly yes
+
 ```
 
-3. Sla het bestand op als **config** (zonder extensie) in je `.ssh`-map.
+### 🔹 **3. Sla het bestand op als `config` in je map:**
+ Sla het bestand op **zonder bestandsextensie** (dus **niet `.txt`** of iets anders)
+
+```
+C:\Users\<jouw_naam>\.ssh\config
+```
+
+---
+
+## 🔹 **4. Open PowerShell of Git Bash**
+
+Typ:
+
+```bash
+ssh projectnaam
+```
+
+---
+
+# Plaats je ** publieke sleutel* in de Vault
+
+
+[https://vault.vives.live/](https://vault.vives.live/)
+## 🔹 **5. Klaar **
+
+Je logt nu automatisch in met de juiste key — geen IP of `-i` meer nodig.
 
 ---
 
