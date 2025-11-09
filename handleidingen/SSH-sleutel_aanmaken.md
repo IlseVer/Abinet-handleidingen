@@ -15,21 +15,21 @@ Open je **terminal** (macOS/Linux) of **PowerShell** (Windows) en voer uit:
 ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ```
 
-💡 *Gebruik `-f` om zelf een bestandsnaam te kiezen:*
+- *Gebruik `-f` om zelf een bestandsnaam te kiezen:*
 
-**Windows:**
+    **Windows:**
+    
+    ```powershell
+    ssh-keygen -t ed25519 -C "jouw_email@example.com" -f .ssh/mijn_nieuwe_key
+    ```
+    
+    **Linux/macOS:**
+    
+    ```bash
+    ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
+    ```
 
-```powershell
-ssh-keygen -t ed25519 -C "jouw_email@example.com" -f .ssh/mijn_nieuwe_key
-```
-
-**Linux/macOS:**
-
-```bash
-ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
-```
-
-> Druk bij elke vraag gewoon op **Enter** om de standaardinstellingen te gebruiken.
+Druk bij elke vraag gewoon op **Enter** om de standaardinstellingen te gebruiken.
 
 ![SSH key aanmaken](images/ssh-key-aanmaken.gif)
 
@@ -52,7 +52,7 @@ Een `config`-bestand laat je verbinden met een **alias**, zodat je niet telkens 
 
 ### Stap 2: Maak (of open) een bestand `config`
 
-Open een teksteditor (bijv. Notepad) en plak dit erin:
+Open een teksteditor (bijv. Notepad), plak deze inhoud erin en pas aan:
 
 ```ssh
 Host projectnaam                # vrije naam, zelf te kiezen
@@ -67,7 +67,9 @@ Host projectnaam                # vrije naam, zelf te kiezen
 ```
 IdentityFile ~/.ssh/id_ed25519
 ```
+    
 - Stel de juiste rechten in
+    
 ```
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/id_ed25519
