@@ -62,5 +62,4 @@ Host projectnaam
 
 ---
 
-Wil je dat ik dit omzet in **HTML met kleur en codeblokken**, zodat het perfect past in Odoo (kopieer/plak-klaar)?
 
