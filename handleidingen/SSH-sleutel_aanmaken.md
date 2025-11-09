@@ -26,6 +26,7 @@ Of met eigen bestandsnaam:
 ```bash
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
 ```
+**Druk bij elke vraag gewoon op Enter om de standaardinstellingen te gebruiken.**!
 
 ![SSH key aanmaken](images/ssh-key-aanmaken.gif)
 ---
