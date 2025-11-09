@@ -92,10 +92,18 @@ ssh projectnaam
 
 ---
 
-# Plaats je ** publieke sleutel* in de Vault
-
+# Publieke sleutel in de Vault plaatsen
 
 [https://vault.vives.live/](https://vault.vives.live/)
+
+1. Open je publieke sleutel (het bestand dat eindigt op `.pub`) met een teksteditor.  
+2. Kopieer de volledige inhoud.  
+3. Voeg die toe in je **Vault** (bijv. als *SSH Public Key*).
+
+Zo blijft je sleutel veilig bewaard en kun je ze later makkelijk terugvinden.
+
+
+![](images/public-key.png)
 ## 🔹 **5. Klaar **
 
 Je logt nu automatisch in met de juiste key — geen IP of `-i` meer nodig.
