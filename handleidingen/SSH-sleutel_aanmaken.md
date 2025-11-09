@@ -27,7 +27,7 @@ Of met eigen bestandsnaam:
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
 ```
 
-![SSH key aanmaken](images/ssh-key-aanmaken.gif)
+![SSH key aanmaken](images/ssh-key.mp4)
 ---
 
 ## 2. Sleutels verplaatsen (indien nodig)
