@@ -1,6 +1,8 @@
 # SSH-sleutel aanmaken
-> ⚠️ **Belangrijk:** Deel **nooit** je *private key*!    
-> Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
+
+⚠️ **Belangrijk:** Deel **nooit** je *private key*!    
+
+Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
 
 
 ## 1. Gebruik de terminal of PowerShell en voer uit:
