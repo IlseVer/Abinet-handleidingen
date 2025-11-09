@@ -48,14 +48,14 @@ Indien niet, verplaats **beide** bestanden (private en public key) naar:
 Een `config`-bestand laat je verbinden met een **alias**, zodat je niet telkens het IP of pad naar je sleutel hoeft in te geven.
 
 
-### Stap 1 — Ga naar de map `.ssh`
+### Stap 1: Ga naar de map `.ssh`
 
-### Stap 2 — Maak (of open) een bestand `config`
+### Stap 2: Maak (of open) een bestand `config`
 
 Open een teksteditor (bijv. Notepad) en plak dit erin:
 
 ```ssh
-Host projectnaam
+Host projectnaam                # vrije naam, zelf te kiezen
     HostName 89.168.87.161      # IP-adres van je server
     User ubuntu                 # gebruikersnaam
     Port 22
