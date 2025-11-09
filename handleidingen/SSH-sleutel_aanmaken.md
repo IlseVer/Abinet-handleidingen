@@ -1,17 +1,21 @@
-# SSH-sleutel aanmaken
+# Inloggen op een server via SSH
 
-⚠️ **Belangrijk:** Deel **nooit** je *private key*!    
+## ⚠️ Belangrijk
 
-Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
+**Deel nooit je *private key*!**  
+Bewaar die veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
 
+---
 
-## 1. Gebruik de terminal of PowerShell en voer uit:
+## 1. SSH-sleutel aanmaken
+
+Open je **terminal** (macOS/Linux) of **PowerShell** (Windows) en voer uit:
 
 ```bash
 ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ```
 
-**Wil je zelf een bestandsnaam voor de key kiezen? Gebruik `-f`:**
+💡 *Gebruik `-f` om zelf een bestandsnaam te kiezen:*
 
 **Windows:**
 
@@ -19,37 +23,36 @@ ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f .ssh/mijn_nieuwe_key
 ```
 
-**Linux / macOS:**
-
-Of met eigen bestandsnaam:
+**Linux/macOS:**
 
 ```bash
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
 ```
-**Druk bij elke vraag gewoon op Enter om de standaardinstellingen te gebruiken.**!
+
+> Druk bij elke vraag gewoon op **Enter** om de standaardinstellingen te gebruiken.
 
 ![SSH key aanmaken](images/ssh-key-aanmaken.gif)
+
 ---
 
-## 2. Sleutels verplaatsen (indien nodig)
+## 2. SSH-Sleutels verplaatsen (indien nodig)
 
 De net aangemaakte sleutels staan normaal gezien automatisch in de map **.ssh**.
-Indien niet, verplaats **beide** bestanden (private en public key) naar die map:
+Indien niet, verplaats **beide** bestanden (private en public key) naar:
 
 * Windows: `C:\Users\<naam>\.ssh\`
 * Linux/macOS: `~/.ssh/`
 
 ---
-# ⚙️ SSH-configuratiebestand maken
-Een config-bestand laat je verbinden met een alias in plaats van een IP-adres of -i-optie.
----
+## 3. SSH-configuratiebestand maken
+Een `config`-bestand laat je verbinden met een **alias**, zodat je niet telkens het IP of pad naar je sleutel hoeft in te geven.
 
-### 🔹 **1. Ga naar de map `.ssh`**
 
----
-### 🔹 **2. Maak (of open) bestand `config`** (bijv. met Notepad)
+### Stap 1 — Ga naar de map `.ssh`
 
-Plak dit erin (pas aan waar nodig):
+### Stap 2 — Maak (of open) een bestand `config`
+
+Open een teksteditor (bijv. Notepad) en plak dit erin:
 
 ```ssh
 Host projectnaam
@@ -59,7 +62,7 @@ Host projectnaam
     IdentityFile C:\Users\<jouw_naam>\.ssh\id_ed25519  # pad naar je private key
     IdentitiesOnly yes
 ```
-**Linux/macOS-gebruikers**: 
+**Linux/macOS**: 
 - pas het pad aan, bv.
 ```
 IdentityFile ~/.ssh/id_ed25519
@@ -70,9 +73,9 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/id_ed25519
 chmod 644 ~/.ssh/id_ed25519.pub
 ```  
-  
-### 🔹 **3. Sla het bestand op als `config` in je map:**
- Sla het bestand op **zonder bestandsextensie** (dus **niet `.txt`** of iets anders)
+
+**Sla het bestand op als `config` (zonder extensie)**  (dus **niet `.txt`** of iets anders)
+Plaats het in je `.ssh`-map.
 
 ```
 C:\Users\<jouw_naam>\.ssh\config
@@ -80,32 +83,46 @@ C:\Users\<jouw_naam>\.ssh\config
 
 ---
 
-## 🔹 **4. Open PowerShell of terminal**
+## 4. Verbinden met de server
 
-Typ:
+Open een **terminal of PowerShell** en typ:
 
 ```bash
 ssh projectnaam
 ```
 
+Als alles goed ingesteld is, log je meteen in op de server zonder IP of `-i`-optie.
+
 ---
 
-# Publieke sleutel in de Vault plaatsen
+## 5. Publieke sleutel in de Vault plaatsen
 
-[https://vault.vives.live/](https://vault.vives.live/)
 
-1. Open je publieke sleutel (het bestand dat eindigt op `.pub`) met een teksteditor.  
-2. Kopieer de volledige inhoud.  
-3. Voeg die toe in je **Vault** (bijv. als *SSH Public Key*).
+1. Ga naar [https://vault.vives.live/](https://vault.vives.live/)  
+2. Open je publieke sleutel (het bestand dat eindigt op `.pub`) met een teksteditor.  
+3. Kopieer de volledige inhoud.  
+4. Voeg die toe in je **Vault** (bijv. als *SSH Public Key je_naam*).
 
 Zo blijft je sleutel veilig bewaard en kun je ze later makkelijk terugvinden.
 
-
 ![](images/public-key.png)
-## 🔹 **5. Klaar **
-
-Je logt nu automatisch in met de juiste key — geen IP of `-i` meer nodig.
 
 ---
+## Tips
 
+Als je meerdere servers beheert, kun je in hetzelfde `config`-bestand meerdere *Host*-blokken toevoegen:
+
+```ssh
+Host webserver
+    HostName 192.168.0.10
+    User deploy
+    IdentityFile ~/.ssh/webserver_key
+
+Host database
+    HostName 192.168.0.11
+    User postgres
+    IdentityFile ~/.ssh/db_key
+```
+
+---
 
