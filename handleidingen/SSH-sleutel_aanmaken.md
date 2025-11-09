@@ -11,7 +11,7 @@ Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of ande
 ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ```
 
-Wil je zelf een bestandsnaam voor de key kiezen? Gebruik `-f`:
+**Wil je zelf een bestandsnaam voor de key kiezen? Gebruik `-f`:**
 
 **Windows:**
 
