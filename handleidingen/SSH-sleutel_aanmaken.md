@@ -3,27 +3,21 @@
 > Bewaar ze veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
 
 
-## Windows (PowerShell)
-
-Maak een nieuwe sleutel aan:
+## 1. Gebruik de terminal of PowerShell en voer uit:
 
 ```bash
 ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ```
 
-Wil je zelf de naam kiezen? Gebruik `-f`:
+Wil je zelf een bestandsnaam voor de key kiezen? Gebruik `-f`:
 
-```bash
+**Windows:**
+
+```powershell
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f .ssh/mijn_nieuwe_key
 ```
 
-## 🐧 Linux / macOS
-
-Nieuwe sleutel aanmaken:
-
-```bash
-ssh-keygen -t ed25519 -C "jouw_email@example.com"
-```
+**Linux / macOS:**
 
 Of met eigen bestandsnaam:
 
@@ -31,12 +25,10 @@ Of met eigen bestandsnaam:
 ssh-keygen -t ed25519 -C "jouw_email@example.com" -f ~/.ssh/mijn_nieuwe_key
 ```
 
-De publieke sleutel (`.pub`) kopieer je naar de server (meestal naar `~/.ssh/authorized_keys`).
-
 ![SSH key aanmaken](images/ssh-key-aanmaken.gif)
 ---
 
-## 📂 Sleutels verplaatsen (indien nodig)
+## 2. Sleutels verplaatsen (indien nodig)
 
 De net aangemaakte sleutels staan normaal gezien automatisch in de map **.ssh**.
 Indien niet, verplaats **beide** bestanden (private en public key) naar die map:
@@ -45,21 +37,14 @@ Indien niet, verplaats **beide** bestanden (private en public key) naar die map:
 * Linux/macOS: `~/.ssh/`
 
 ---
-# Met SSH te verbinden via een config op Windows:
-## ⚙️ SSH-configuratiebestand maken
-
+# ⚙️ SSH-configuratiebestand maken
+Een config-bestand laat je verbinden met een alias in plaats van een IP-adres of -i-optie.
 ---
 
-### 🔹 **1. Open Verkenner**
-
-Ga naar:
-
-```
-C:\Users\<jouw_naam>\.ssh
-```
+### 🔹 **1. Ga naar de map `.ssh`**
 
 ---
-### 🔹 **2. Maak (of open) bestand `config`** (bijv. met Kladblok)
+### 🔹 **2. Maak (of open) bestand `config`** (bijv. met Notepad)
 
 Plak dit erin (pas aan waar nodig):
 
@@ -70,9 +55,17 @@ Host projectnaam
     Port 22
     IdentityFile C:\Users\<jouw_naam>\.ssh\id_ed25519  # pad naar je private key
     IdentitiesOnly yes
-
 ```
-
+**Linux/macOS-gebruikers**: 
+- pas het pad aan, bv.
+```
+IdentityFile ~/.ssh/id_ed25519
+```
+- Stel de juiste rechten in
+```
+chmod 600 ~/.ssh/config
+```  
+  
 ### 🔹 **3. Sla het bestand op als `config` in je map:**
  Sla het bestand op **zonder bestandsextensie** (dus **niet `.txt`** of iets anders)
 
@@ -82,7 +75,7 @@ C:\Users\<jouw_naam>\.ssh\config
 
 ---
 
-## 🔹 **4. Open PowerShell of Git Bash**
+## 🔹 **4. Open PowerShell of terminal**
 
 Typ:
 
