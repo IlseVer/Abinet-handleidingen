@@ -1,7 +1,7 @@
 # SSH-sleutel aanmaken
 
 ## Windows (PowerShell)
-![SSH key aanmaken](handleidingen/images/ssh-key-aanmaken.gif)
+![SSH key aanmaken](images/ssh-key-aanmaken.gif)
 
 
 Maak een nieuwe sleutel aan:
