@@ -14,6 +14,11 @@ Open je **terminal** (macOS/Linux) of **PowerShell** (Windows) en voer uit:
 ```bash
 ssh-keygen -t ed25519 -C "jouw_email@example.com"
 ```
+> **Wat doet `-C "jouw_email@example.com"`?**  
+> Dit voegt enkel een **label (commentaar)** toe aan de sleutel, zodat je later weet van wie of waarvoor ze is.  
+> Je mag hier ook iets anders invullen, zoals:  `-C "laptop-ilse"` of `-C "ilse-pe2"`.  
+
+
 
 - *Gebruik `-f` om zelf een bestandsnaam te kiezen:*
 
