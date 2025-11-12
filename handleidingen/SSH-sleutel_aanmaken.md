@@ -89,13 +89,20 @@ C:\Users\<jouw_naam>\.ssh\config
 ```
 
 ---
+## 4. Gedeelde werkmap aanmaken
+Gedeelde werpmap voor je team al aangemaakt? Ga direct verder naar punt 5
 
-## 4. Verbinden met de server
+## 5. Publieke sleutel toevoegen aan de server
+Publieke sleutel al toegevoegd aan de server? Ga direct verder naar punt 6.
+
 **Indien je publieke sleutel nog niet is toegevoegd op de server**, volg dan eerst dit stappenplan:
 [Stappenplan sleutel toevoegen aan de server](./teamleden_toevoegen_linux_cloud.md)
 
 **Is je sleutel al toegevoegd?**  
-Ga dan verder hieronder
+Ga dan verder naar punt 6
+
+## 6. Verbinden met de server
+
 
 Open een **terminal of PowerShell** en typ:
 
