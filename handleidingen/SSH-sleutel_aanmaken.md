@@ -89,11 +89,12 @@ C:\Users\<jouw_naam>\.ssh\config
 ```
 
 ---
-## 4. Teamlid toevoegen en gedeelde projectmap instellen
-   Voor het toevoegen van teamleden, instellen van SSH-keys op de server  
-en het aanmaken van de gedeelde projectmap, zie:
+## 4. Instellen publieke sleutel op server - teamlid toevoegen - gedeelde projectmap instellen
+   Voor het toevoegen van teamleden, instellen van SSH-keys op de server en het aanmaken van de gedeelde projectmap, zie:
    
    [Teamlid toevoegen en gedeelde projectmap instellen](./teamleden_toevoegen_linux_cloud.md)
+
+---
 
 ## 5. Verbinden met de server
 
