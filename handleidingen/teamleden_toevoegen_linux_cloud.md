@@ -93,19 +93,19 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
   
 3. **Stel de juiste rechten in!**
-  
-  ```bash
-  sudo chmod 700 /home/ilse/.ssh
-  sudo chmod 600 /home/ilse/.ssh/authorized_keys
-  sudo chown -R ilse:ilse /home/ilse/.ssh
-  ```
-  
+     
+     ```bash
+     sudo chmod 700 /home/ilse/.ssh
+     sudo chmod 600 /home/ilse/.ssh/authorized_keys
+     sudo chown -R ilse:ilse /home/ilse/.ssh
+     ```
+     
 
 ---
 
-## 📂 Gedeelde map koppelen
+## Gedeelde map koppelen
 
-1. **Maak een snelkoppeling in de home directory**
+1. **Maak een snelkoppeling(symlink) in de home directory**
   
   ```bash
   sudo -u ilse ln -s /srv/teamabinet /home/ilse/teamabinet
@@ -116,8 +116,10 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
   ```bash
   ls -ld /srv/teamabinet
   ```
-  
-
+  De map moet de volgende permissiestructuur hebben:
+   ```bash
+  drwxrwsr-x 3 ubuntu teamabinetgroup 4096 Nov  9 16:45 /srv/teamabinet
+  ```
 ---
 
 ## 🔍 Controle & test
@@ -139,20 +141,45 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
   ```bash
   ssh ilse@<server-ip>
   ```
-  
+---
+## Pas als dit alles werkt, ga verder
+
+## Zet root-login via SSH uit (aanbevolen)
+
+Open SSH-configuratie:
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Zoek:
+```nginx
+PermitRootLogin yes
+```
+
+Wijzig naar:
+```nginx
+PermitRootLogin no
+```
+
+Zorg ook dat deze aan staat (default is goed):
+```nginx
+PasswordAuthentication no
+```
+
+Sla op en herstart SSH:
+```bash
+sudo systemctl restart ssh
+```
+
+## Controleer dat login werkt
+
+Sluit je sessie en probeer opnieuw:
+```bash
+ssh ilse@<server-ip>
+```
+
+**Als dat werkt: je server correct ingesteld.**
 
 ---
 
-## ✅ Samenvatting
-
-| Stap | Doel | Belangrijkste commando’s |
-| --- | --- | --- |
-| Voorbereiding | Groep + map aanmaken | `groupadd`, `mkdir`, `chmod` |
-| Gebruiker aanmaken | Nieuw account | `adduser`, `usermod -aG teamabinet` |
-| SSH instellen | Public key toevoegen | `mkdir .ssh`, `nano authorized_keys` |
-| Permissies zetten | Toegang beveiligen | `chmod 700/600`, `chown` |
-| Symlink maken | Gemak voor gebruiker | `ln -s /srv/teamabinet` |
-| Testen | Alles controleren | `id`, `ssh`, `ls` |
-
----
 
