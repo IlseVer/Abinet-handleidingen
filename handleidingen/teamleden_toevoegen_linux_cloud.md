@@ -16,32 +16,33 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 1. **Log in als beheerder**
    voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na
-  
-  ```bash
-  ssh ubuntu@<server-ip>
-  ```
+     
+     ```bash
+     ssh ubuntu@<server-ip>
+     ```
   
 2. **Zorg dat je de public key (.pub) van je teamlid hebt**
-  Bijvoorbeeld: `ilse.pub`
+ 
+     Bijvoorbeeld: `ilse.pub`
   
 3. **Maak de gedeelde groep aan**:(Eenmalig)
-  Alle teamleden delen dezelfde werkomgeving via `/srv/teamabinet`.
-vervang `teamabinet` en `teamabinetgroup` door je eigen gekozen namen.
 
-  ```bash
-  sudo groupadd teamabinetgroup
-  ```
+   Alle teamleden delen dezelfde werkomgeving via `/srv/teamabinet`.
+
+     ```bash
+     sudo groupadd teamabinetgroup
+     ```
   
 4. **Maak de gedeelde map aan:**(Eenmalig)
   
-  ```bash
-  sudo mkdir -p /srv/teamabinet
-  sudo chown ubuntu:teamabinetgroup /srv/teamabinet
-  sudo chmod 2775 /srv/teamabinet
-  sudo chmod g+s /srv/teamabinet
-  ```
+     ```bash
+     sudo mkdir -p /srv/teamabinet
+     sudo chown ubuntu:teamabinetgroup /srv/teamabinet
+     sudo chmod 2775 /srv/teamabinet
+     sudo chmod g+s /srv/teamabinet
+     ```
   
-  > Nieuwe bestanden erven automatisch de groep `teamabinetgroup`.
+     > Nieuwe bestanden erven automatisch de groep `teamabinetgroup`.
   
 
 ---
@@ -50,43 +51,48 @@ vervang `teamabinet` en `teamabinetgroup` door je eigen gekozen namen.
 
 1. **Maak de gebruiker aan**
   
-  ```bash
-  sudo adduser ilse
-  ```
+     ```bash
+     sudo adduser ilse
+     ```
   
 2. **Gebruiker toevoegen aan teamgroep**
-   Voeg het teamlid toe aan de gedeelde groep `teamabinet`:
+
+      Voeg het teamlid toe aan de gedeelde groep `teamabinet`:
+     
+     ```bash
+     sudo usermod -aG teamabinet ilse
+     ```
   
-  ```bash
-  sudo usermod -aG teamabinet ilse
-  ```
+4. **(Optioneel)** Geef enkel aan beheerders sudo-rechten:
   
-3. **(Optioneel)** Geef enkel aan beheerders sudo-rechten:
-  
-  ```bash
-  sudo usermod -aG sudo ilse
-  ```
+     ```bash
+     sudo usermod -aG sudo ilse
+     ```
   
 
 ---
 
-## 🔑 SSH-toegang instellen
+## SSH-toegang instellen
 
-1. **Maak SSH-map aan**
+1. **Maak de SSH-map aan indien nog niet aanwezig**
   
   ```bash
   sudo mkdir -p /home/ilse/.ssh
   ```
   
-2. **Voeg public key toe**
+2. **Voeg de public key toe**
   
   ```bash
   sudo nano /home/ilse/.ssh/authorized_keys
   ```
   
-  ➕ Plak de inhoud van de `.pub` file (één regel).
+  -  Open het `.pub`-bestand met een **teksteditor**.  
+   Kopieer de volledige regel (die begint met `ssh-ed25519` of `ssh-rsa`) en plak die in het geopende bestand(één regel).
+   
+  -  Sla daarna op en sluit bestand.
+
   
-3. **Zet juiste rechten**
+3. **Stel de juiste rechten in!**
   
   ```bash
   sudo chmod 700 /home/ilse/.ssh
