@@ -12,7 +12,7 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 ---
 
-## Mappenstructuur en groep aanmaken + rechten instellen
+## 1. Mappenstructuur en groep aanmaken + rechten instellen
 
 1. **Log in als beheerder**
    voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na 
@@ -47,7 +47,7 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 ---
 
-## Gebruiker toevoegen
+## 2. Gebruiker toevoegen
 
 1. **Maak de gebruiker aan**
   
@@ -72,19 +72,19 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 ---
 
-## SSH-toegang instellen
+## 3. SSH-toegang instellen
 
 1. **Maak de SSH-map aan indien nog niet aanwezig**
   
-  ```bash
-  sudo mkdir -p /home/ilse/.ssh
-  ```
+     ```bash
+     sudo mkdir -p /home/ilse/.ssh
+     ```
   
 2. **Voeg de public key toe**
   
-  ```bash
-  sudo nano /home/ilse/.ssh/authorized_keys
-  ```
+     ```bash
+     sudo nano /home/ilse/.ssh/authorized_keys
+     ```
   
   -  Open het `.pub`-bestand met een **teksteditor**.  
    Kopieer de volledige regel (die begint met `ssh-ed25519` of `ssh-rsa`) en plak die in het geopende bestand(één regel).
@@ -103,73 +103,74 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 ---
 
-## Gedeelde map koppelen
+## 4. Gedeelde map koppelen
 
 1. **Maak een snelkoppeling(symlink) in de home directory**
   
-  ```bash
-  sudo -u ilse ln -s /srv/teamabinet /home/ilse/teamabinet
-  ```
+     ```bash
+     sudo -u ilse ln -s /srv/teamabinet /home/ilse/teamabinet
+     ```
   
 2. **Controleer de rechten**
   
-  ```bash
-  ls -ld /srv/teamabinet
-  ```
-  De map moet de volgende permissiestructuur hebben:
-   ```bash
-  drwxrwsr-x 3 ubuntu teamabinetgroup 4096 Nov  9 16:45 /srv/teamabinet
-  ```
+     ```bash
+     ls -ld /srv/teamabinet
+     ```
+     De map moet de volgende permissiestructuur hebben:
+      ```bash
+     drwxrwsr-x 3 ubuntu teamabinetgroup 4096 Nov  9 16:45 /srv/teamabinet
+     ```
 ---
 
-## 🔍 Controle & test
+## 5. Controle & test
 
 1. **Controleer groepslidmaatschap**
   
-  ```bash
-  id ilse
-  ```
+     ```bash
+     id ilse
+     ```
   
 2. **Controleer gedeelde map**
   
-  ```bash
-  sudo -u ilse ls /srv/teamabinet
-  ```
+     ```bash
+     sudo -u ilse ls /srv/teamabinet
+     ```
   
 3. **Test SSH-login**
   
-  ```bash
-  ssh ilse@<server-ip>
-  ```
+     ```bash
+     ssh ilse@<server-ip>
+     ```
+
+**Pas als dit alles werkt --> ga verder**
+
 ---
-## Pas als dit alles werkt, ga verder
+## 6. Zet root-login via SSH uit (aanbevolen)
 
-## Zet root-login via SSH uit (aanbevolen)
+1. **Open SSH-configuratie:**
+   ```bash
+   sudo nano /etc/ssh/sshd_config
+   ```
 
-Open SSH-configuratie:
-```bash
-sudo nano /etc/ssh/sshd_config
-```
+2. **Zoek:**
+   ```nginx
+   PermitRootLogin yes
+   ```
 
-Zoek:
-```nginx
-PermitRootLogin yes
-```
+3. **Wijzig naar:**
+   ```nginx
+   PermitRootLogin no
+   ```
 
-Wijzig naar:
-```nginx
-PermitRootLogin no
-```
+4. **Zorg ook dat deze aan staat (default is goed):**
+   ```nginx
+   PasswordAuthentication no
+   ```
 
-Zorg ook dat deze aan staat (default is goed):
-```nginx
-PasswordAuthentication no
-```
-
-Sla op en herstart SSH:
-```bash
-sudo systemctl restart ssh
-```
+5. **Sla op en herstart SSH:**
+   ```bash
+   sudo systemctl restart ssh
+   ```
 
 ## Controleer dat login werkt
 
