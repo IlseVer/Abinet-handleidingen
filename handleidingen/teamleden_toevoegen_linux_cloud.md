@@ -15,7 +15,7 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 ## Mappenstructuur en groep aanmaken + rechten instellen
 
 1. **Log in als beheerder**
-   voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na
+   voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na 
      
      ```bash
      ssh ubuntu@<server-ip>
