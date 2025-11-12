@@ -1,7 +1,6 @@
 # Teamlid toevoegen en gedeelde projectmap instellen (handmatig)
 
 Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan de server, hun SSH-sleutels instelt en toegang geeft tot de gedeelde map `/srv/<projectmap>`.
-Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 > **Als voorbeeld wordt hier gewerkt met:**
 > - `teamabinet` = gedeelde map  
