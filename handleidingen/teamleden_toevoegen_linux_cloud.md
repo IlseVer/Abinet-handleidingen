@@ -172,14 +172,14 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
    sudo systemctl restart ssh
    ```
 
-## Controleer dat login werkt
+## 7. Controleer dat login werkt
 
-Sluit je sessie en probeer opnieuw:
-```bash
-ssh ilse@<server-ip>
-```
+   Sluit je sessie en probeer opnieuw:
+   ```bash
+   ssh ilse@<server-ip>
+   ```
 
-**Als dat werkt: je server correct ingesteld.**
+**Als dat werkt: je server is correct ingesteld.**
 
 ---
 
