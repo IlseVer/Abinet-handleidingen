@@ -123,24 +123,26 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 ---
 
 ## 5. Controle & test
+Log eerst uit als beheerder en log nu in met je eigen naam
 
-1. **Controleer groepslidmaatschap**
+1. **Test SSH-login**
+  
+     ```bash
+     ssh ilse@<server-ip>
+     ```
+2. **Controleer groepslidmaatschap**
   
      ```bash
      id ilse
      ```
   
-2. **Controleer gedeelde map**
+3. **Controleer gedeelde map**
   
      ```bash
      sudo -u ilse ls /srv/teamabinet
      ```
   
-3. **Test SSH-login**
-  
-     ```bash
-     ssh ilse@<server-ip>
-     ```
+
 
 **Pas als dit alles werkt --> ga verder**
 
