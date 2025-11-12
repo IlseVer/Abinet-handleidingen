@@ -114,7 +114,7 @@ Als alles goed ingesteld is, log je meteen in op de server zonder IP of `-i`-opt
 
 ---
 
-## 5. Publieke sleutel in de Vault plaatsen
+## 7. Publieke sleutel in de Vault plaatsen
 
 
 1. Ga naar [https://vault.vives.live/](https://vault.vives.live/)  
