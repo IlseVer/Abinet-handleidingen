@@ -26,11 +26,12 @@ Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan d
   
 3. **Maak de gedeelde groep aan**:(Eenmalig)
 
-   Alle teamleden delen dezelfde werkomgeving via `/srv/teamabinet`.
 
      ```bash
      sudo groupadd teamabinetgroup
      ```
+
+     Alle teamleden delen dezelfde werkomgeving via `/srv/teamabinet`.
   
 4. **Maak de gedeelde map aan:**(Eenmalig)
   
