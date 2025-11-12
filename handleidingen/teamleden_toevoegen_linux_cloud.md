@@ -1,13 +1,21 @@
-# 🧩 Stappenplan: Nieuwe teamleden toevoegen op Oracle Linux (handmatig)
+# Teamlid toevoegen en gedeelde projectmap instellen (handmatig)
 
-Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan de server, hun SSH-sleutels instelt en toegang geeft tot de gedeelde map `/srv/teamabinet`.
+Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan de server, hun SSH-sleutels instelt en toegang geeft tot de gedeelde map `/srv/<projectmap>`.
 Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
+
+> **Als voorbeeld wordt hier gewerkt met:**
+> - `teamabinet` = gedeelde map  
+> - `teamabinetgroup` = gedeelde groep  
+>
+> **Vervang deze namen telkens door jullie eigen gekozen namen**.
+
 
 ---
 
-## ⚙️ Voorbereiding
+## Mappenstructuur en groep aanmaken + rechten instellen
 
 1. **Log in als beheerder**
+   voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na
   
   ```bash
   ssh ubuntu@<server-ip>
@@ -17,26 +25,28 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
   Bijvoorbeeld: `ilse.pub`
   
 3. **Maak de gedeelde groep aan**:(Eenmalig)
-  
+  Alle teamleden delen dezelfde werkomgeving via `/srv/teamabinet`.
+vervang `teamabinet` en `teamabinetgroup` door je eigen gekozen namen.
+
   ```bash
-  sudo groupadd teamabinet
+  sudo groupadd teamabinetgroup
   ```
   
 4. **Maak de gedeelde map aan:**(Eenmalig)
   
   ```bash
   sudo mkdir -p /srv/teamabinet
-  sudo chown ubuntu:teamabinet /srv/teamabinet
+  sudo chown ubuntu:teamabinetgroup /srv/teamabinet
   sudo chmod 2775 /srv/teamabinet
   sudo chmod g+s /srv/teamabinet
   ```
   
-  ➕ Nieuwe bestanden erven automatisch de groep `teamabinet`.
+  > Nieuwe bestanden erven automatisch de groep `teamabinetgroup`.
   
 
 ---
 
-## 👤 Gebruiker toevoegen
+## Gebruiker toevoegen
 
 1. **Maak de gebruiker aan**
   
@@ -44,13 +54,14 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
   sudo adduser ilse
   ```
   
-2. **Voeg de gebruiker toe aan de gedeelde groep**
+2. **Gebruiker toevoegen aan teamgroep**
+   Voeg het teamlid toe aan de gedeelde groep `teamabinet`:
   
   ```bash
   sudo usermod -aG teamabinet ilse
   ```
   
-3. **(Optioneel)** Geef sudo-rechten als de gebruiker beheerder is
+3. **(Optioneel)** Geef enkel aan beheerders sudo-rechten:
   
   ```bash
   sudo usermod -aG sudo ilse
@@ -139,4 +150,3 @@ Of gebruik het script: [add_team_member.sh](/scripts/add_team_member.sh)
 
 ---
 
-© Projectteam Abinetinfra
