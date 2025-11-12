@@ -89,19 +89,13 @@ C:\Users\<jouw_naam>\.ssh\config
 ```
 
 ---
-## 4. Gedeelde werkmap aanmaken
-Gedeelde werpmap voor je team al aangemaakt? Ga direct verder naar punt 5
+## 4. Teamlid toevoegen en gedeelde projectmap instellen
+   Voor het toevoegen van teamleden, instellen van SSH-keys op de server  
+en het aanmaken van de gedeelde projectmap, zie:
+   
+   [Teamlid toevoegen en gedeelde projectmap instellen](./teamleden_toevoegen_linux_cloud.md)
 
-## 5. Publieke sleutel toevoegen aan de server
-Publieke sleutel al toegevoegd aan de server? Ga direct verder naar punt 6.
-
-**Indien je publieke sleutel nog niet is toegevoegd op de server**, volg dan eerst dit stappenplan:
-[Teamlid toevoegen en gedeelde projectmap instellen](./teamleden_toevoegen_linux_cloud.md)
-
-**Is je sleutel al toegevoegd?**  
-Ga dan verder naar punt 6
-
-## 6. Verbinden met de server
+## 5. Verbinden met de server
 
 
 Open een **terminal of PowerShell** en typ:
