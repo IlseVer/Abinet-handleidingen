@@ -91,7 +91,7 @@ C:\Users\<jouw_naam>\.ssh\config
 ---
 
 ## 4. Verbinden met de server
-Indien je publieke sleutel nog niet is toegevoegd op de server: volg dan eerst dit stappenplan [Stappenplan sleutel toevoegen aan de server](./#handleidingen/teamleden_toevoegen_linux_cloud.md)
+Indien je publieke sleutel nog niet is toegevoegd op de server: volg dan eerst dit stappenplan [Stappenplan sleutel toevoegen aan de server](./teamleden_toevoegen_linux_cloud.md)
 Open een **terminal of PowerShell** en typ:
 
 ```bash
