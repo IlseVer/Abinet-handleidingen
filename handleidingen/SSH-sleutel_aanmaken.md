@@ -96,7 +96,7 @@ Gedeelde werpmap voor je team al aangemaakt? Ga direct verder naar punt 5
 Publieke sleutel al toegevoegd aan de server? Ga direct verder naar punt 6.
 
 **Indien je publieke sleutel nog niet is toegevoegd op de server**, volg dan eerst dit stappenplan:
-[Stappenplan sleutel toevoegen aan de server](./teamleden_toevoegen_linux_cloud.md)
+[Teamlid toevoegen en gedeelde projectmap instellen](./teamleden_toevoegen_linux_cloud.md)
 
 **Is je sleutel al toegevoegd?**  
 Ga dan verder naar punt 6
