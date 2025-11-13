@@ -130,13 +130,25 @@ Log eerst uit als beheerder en log nu in met je eigen naam
      ```bash
      ssh ilse@<server-ip>
      ```
-2. **Controleer groepslidmaatschap**
+
+     Gebruik voor de **eerste login** het wachtwoord dat je van de beheerder hebt ontvangen.
+
+   Wijzig daarna je wachtwoord en bewaar het veilig in de **Vault**. 
+   (laat daar eventueel een sterk wachtwoord genereren).
+
+   Het wachtwoord wijzigen doe je met:
+
+    ```bash
+     passwd ilse
+     ```
+   
+3. **Controleer groepslidmaatschap**
   
      ```bash
      id ilse
      ```
   
-3. **Controleer gedeelde map**
+4. **Controleer gedeelde map**
   
      ```bash
      sudo -u ilse ls /srv/teamabinet
