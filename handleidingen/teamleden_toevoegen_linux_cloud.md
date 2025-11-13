@@ -133,7 +133,8 @@ Log eerst uit als beheerder en log nu in met je eigen naam
 
      Gebruik voor de **eerste login** het wachtwoord dat je van de beheerder hebt ontvangen.
 
-   Wijzig daarna je wachtwoord en bewaar het veilig in de **Vault**. 
+   Wijzig daarna je wachtwoord en bewaar het veilig in de **Vault**. **Niet vergeten!**
+   
    (laat daar eventueel een sterk wachtwoord genereren).
 
    Het wachtwoord wijzigen doe je met:
