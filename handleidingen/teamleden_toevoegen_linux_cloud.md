@@ -11,7 +11,7 @@ Dit document beschrijft hoe je als **ubuntu-beheerder** teamleden toevoegt aan d
 
 ---
 
-## 1. Mappenstructuur en groep aanmaken + rechten instellen
+## 1. Mappenstructuur en groep aanmaken + rechten instellen 
 
 1. **Log in als beheerder**
    voor Oracle is dit ubuntu | voor Linode is dit root | kijk je provider na 

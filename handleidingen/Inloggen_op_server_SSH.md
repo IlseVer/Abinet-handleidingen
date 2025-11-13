@@ -3,7 +3,7 @@
 ## ⚠️ Belangrijk
 
 **Deel nooit je *private key*!**  
-Bewaar die veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms.
+Bewaar die veilig op je eigen computer en upload ze **nooit** naar GitHub of andere platforms. 
 
 ---
 
